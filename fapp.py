@@ -5,6 +5,15 @@ import random
 
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Or restrict to Voiceflow domain
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # In-memory database
 users_db = {}
 submitted_shifts = []
